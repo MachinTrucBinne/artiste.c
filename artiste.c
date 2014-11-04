@@ -51,7 +51,7 @@ int main(int argc, char *argv[], char PWD[])
         return 1;
         }
     else
-       printf("Le fichier de lecture a ete ouvert correctement. Cause probable du problème : le nom du fichier .c ici présent doit être \"artistes.c\" et rien d'autre!\n");
+       printf("Le fichier de lecture a ete ouvert correctement. Cause probable du problème : le nom du fichier .c ici présent doit être \"artistes.c\" et rien d'autre! (artistes au pluriel, pas au singulier!)\n");
   
 
     /**************************************************************************/
