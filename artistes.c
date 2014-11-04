@@ -147,9 +147,9 @@ int main(int argc, char *argv[], char PWD[])
             n_vieux = n_nouveau;
             n_nouveau=0;
 
-            for (k=0 ; k<256 ; k++){artiste_vieux[k] = NULL;} //on réinitialise le vieil artiste
+            for (k=0 ; k<257 ; k++){artiste_vieux[k] = NULL;} //on réinitialise le vieil artiste
             for (k=0 ; k<n_vieux ; k++){artiste_vieux[k] = artiste_nouveau[k];} //on envoie l'ancien nouveau artiste au vieil artiste
-            for (k=0 ; k<256 ; k++){artiste_nouveau[k] = NULL;} //on réinitialise le nouvel artiste
+            for (k=0 ; k<257 ; k++){artiste_nouveau[k] = NULL;} //on réinitialise le nouvel artiste
 
             while (strcmp(artiste_fin_buffer,artiste_fin) != 0) // on cherche la fin du nouvel artiste
             {
