@@ -3,7 +3,7 @@ PRODUIT PAR: NAC
 
 Novembre 2014
 
-UTILITÉ: extraire les artistes du fichier Musique.xml produit par iTunes. Fonctionne sur MAC OS (du moins 10.7)
+UTILITÉ: extraire les artistes du fichier Musique.xml produit par iTunes. Fonctionne sur MAC OS Lion (10.7).
 
 À FAIRE :
 1) Télécharger les Xcode command line tools si ce n'est pas déjà fait.
