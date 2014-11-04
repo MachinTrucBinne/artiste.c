@@ -1,9 +1,21 @@
 /*
-PRODUIT PAR: MachinTrucBinne
+PRODUIT PAR: NAC
 
 Novembre 2014
 
-UTILITÉ: extraire les artistes du fichier Musique.xml produit par iTunes.
+UTILITÉ: extraire les artistes du fichier Musique.xml produit par iTunes. Fonctionne sur MAC OS (du moins 10.7)
+
+À FAIRE :
+1) Télécharger les Xcode command line tools si ce n'est pas déjà fait.
+2) Télécharger Sublime Text pour compiler si ce n'est pas déjà fait (car gcc semble crasher à la compilation).
+3) S'assurer que le nom du présent fichier .c soit nommé artistes.c (au pluriel).
+4) Compiler le présent fichier artistes.c avec Sublime Text (cmd+b).
+5) S'assurer d'avoir le fichier Musique.xml produit par iTunes dans le même dossier que l'exécutable.
+6) Exécuter l'exécutable artistes.
+
+Le fichier artistes_extraits.txt devrait contenir tous les artistes de votre librairie iTunes (dans l'ordre d'ajout chronologique).
+
+Si ça bug, tant pis.
 
 */
 
@@ -47,11 +59,11 @@ int main(int argc, char *argv[], char PWD[])
 
     if(read_file==NULL)
         {
-        printf("Erreur, le fichier de lecture n'a pu etre ouvert\n");
+        printf("Erreur, le fichier de lecture n'a pu etre ouvert. Cause probable du problème : le nom du fichier .c ici présent doit être \"artistes.c\" et rien d'autre! (artistes au pluriel, pas au singulier!)\n");
         return 1;
         }
     else
-       printf("Le fichier de lecture a ete ouvert correctement. Cause probable du problème : le nom du fichier .c ici présent doit être \"artistes.c\" et rien d'autre! (artistes au pluriel, pas au singulier!)\n");
+       printf("Le fichier de lecture a ete ouvert correctement.\n");
   
 
     /**************************************************************************/
