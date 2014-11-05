@@ -33,6 +33,7 @@ int main(int argc, char *argv[], char PWD[])
 
     int d;
     char buffer_PWD[255]; // le string qui contiendra le chemin vers l'executable, le fichier de lecture et le fichier d'écriture.
+    memset(buffer_PWD, NULL, sizeof(buffer_PWD));
     sprintf(buffer_PWD,"%s",*argv); // on met le path dans buffer_PWD
     int l = strlen(buffer_PWD); // simplement un entier qui nous informe de la longueur du path.
 
@@ -47,6 +48,7 @@ int main(int argc, char *argv[], char PWD[])
     /**************************************************************************/
 
     char nom_du_fichier_de_lecture [12];
+    memset(nom_du_fichier_de_lecture, NULL, sizeof(nom_du_fichier_de_lecture));
     sprintf(nom_du_fichier_de_lecture, "Musique.xml");
 
     for(d=l-8;d<254;d++){buffer_PWD[d] = NULL;} // on efface les lettres en trop du path car contient "artiste" (le nom de l'executable) en trop.
@@ -71,6 +73,7 @@ int main(int argc, char *argv[], char PWD[])
     /**************************************************************************/
 
     char nom_du_fichier_decriture [22];
+    memset(nom_du_fichier_decriture, NULL, sizeof(nom_du_fichier_decriture));
     sprintf(nom_du_fichier_decriture, "artistes_extraits.txt");
 
     for(d=l-8;d<254;d++){buffer_PWD[d] = NULL;} // on efface les lettres en trop du path car contient encore "Musique.xml".
@@ -94,13 +97,28 @@ int main(int argc, char *argv[], char PWD[])
     /**************************************************************************/
 
     // Poser les string qu'on va rechercher et transférer
-    char artiste_debut[26]; sprintf(artiste_debut, "<key>Artist</key><string>"); //car les artistes du log sont précédés de <key>Artist</key><string>
+    
+    char artiste_debut[26];
+    memset(artiste_debut, NULL, sizeof(artiste_debut));
+    sprintf(artiste_debut, "<key>Artist</key><string>"); //car les artistes du log sont précédés de <key>Artist</key><string>
+
     char artiste_debut_buffer[255]; //string qui bouffe du log et viendra se comparer à artiste_debut
-    char artiste_fin[255]; sprintf(artiste_fin, "</string>"); //car les artistes du log sont suivit de </string>
+    memset(artiste_debut_buffer, NULL, sizeof(artiste_debut_buffer));  
+
+    char artiste_fin[255];
+    memset(artiste_fin, NULL, sizeof(artiste_fin));
+    sprintf(artiste_fin, "</string>"); //car les artistes du log sont suivit de </string>
+    
     char artiste_fin_buffer[255]; // string qui bouffe du log par itération et viendra se comparer à artiste_fin
+    memset(artiste_fin_buffer, NULL, sizeof(artiste_fin_buffer));
+
     char artiste_nouveau[255]; //un nouvel artiste trouvé!
-    int n_nouveau=0;//longueur du vieil artiste
+    memset(artiste_nouveau, NULL, sizeof(artiste_nouveau));
+
     char artiste_vieux[255]; //l'ancien artiste trouvé (viendra se comparer à artiste_nouveau pour s'assurer de ne pas avoir de doublons consécutifs)
+    memset(artiste_vieux, NULL, sizeof(artiste_vieux));
+    
+    int n_nouveau=0;//longueur du vieil artiste
     int n_vieux = 0;// longueur du nouvel artiste
     
     // Poser des entiers quelconques
@@ -147,9 +165,10 @@ int main(int argc, char *argv[], char PWD[])
             n_vieux = n_nouveau;
             n_nouveau=0;
 
-            for (k=0 ; k<257 ; k++){artiste_vieux[k] = NULL;} //on réinitialise le vieil artiste
-            for (k=0 ; k<n_vieux ; k++){artiste_vieux[k] = artiste_nouveau[k];} //on envoie l'ancien nouveau artiste au vieil artiste
-            for (k=0 ; k<257 ; k++){artiste_nouveau[k] = NULL;} //on réinitialise le nouvel artiste
+            memset(artiste_vieux, NULL, sizeof(artiste_vieux));
+            sprintf(artiste_vieux,"%s", artiste_nouveau);
+            memset(artiste_nouveau, NULL, sizeof(artiste_nouveau));
+            memset(artiste_fin_buffer, NULL, sizeof(artiste_fin_buffer));
 
             while (strcmp(artiste_fin_buffer,artiste_fin) != 0) // on cherche la fin du nouvel artiste
             {
@@ -157,7 +176,11 @@ int main(int argc, char *argv[], char PWD[])
                 n_nouveau++;
             }
 
-            for (k=0;k<n_nouveau-1;k++){artiste_nouveau[k] = BufferLogFile[i+k+25];} // on envoie l'artiste dans le string artiste_nouveau
+            for (k=0;k<n_nouveau-1;k++)
+            {
+                artiste_nouveau[k] = BufferLogFile[i+k+25];
+                //printf("allo : %c",BufferLogFile[i+k+25]);
+            } // on envoie l'artiste dans le string artiste_nouveau
 
             if (strcmp(artiste_nouveau,artiste_vieux) != 0) // pour s'assurer qu'on ne réécrit pas le même artiste deux fois
             {   
