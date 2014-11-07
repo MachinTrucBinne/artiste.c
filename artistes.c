@@ -163,7 +163,7 @@ int main(int argc, char *argv[], char PWD[])
         if (strcmp(artiste_debut_buffer,artiste_debut) == 0) // si la partie qu'on vient de copier est "<key>Artist</key><string>" alors on a trouvé un artiste!
         {
             n_vieux = n_nouveau;
-            n_nouveau=0;
+            n_nouveau=-1;
 
             memset(artiste_vieux, NULL, sizeof(artiste_vieux));
             sprintf(artiste_vieux,"%s", artiste_nouveau);
@@ -179,7 +179,6 @@ int main(int argc, char *argv[], char PWD[])
             for (k=0;k<n_nouveau-1;k++)
             {
                 artiste_nouveau[k] = BufferLogFile[i+k+25];
-                //printf("allo : %c",BufferLogFile[i+k+25]);
             } // on envoie l'artiste dans le string artiste_nouveau
 
             if (strcmp(artiste_nouveau,artiste_vieux) != 0) // pour s'assurer qu'on ne réécrit pas le même artiste deux fois
