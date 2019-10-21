@@ -5,7 +5,7 @@
 Pour afficher la liste des artistes dans une librairies iTunes sur macOS il suffit d'ouvrir un terminal et de faire :
 ```cd ~/Music/iTunes/iTunes\ Media/Music ; ls```
 
-Ici il s'agit d'afficher les artistes d'une manière différente. D'abord, iTunes peut produit un fichier XML en allant dans le menu :
+Ici il s'agit d'afficher les artistes d'une manière différente. D'abord, iTunes produit un fichier XML en allant dans le menu :
 ```Fichier/Bibliothèque/Exporter la bibliothèque...```
 
 Maintenant qu'on a un fichier XML il faut extraire les artistes du fichier. Voici deux codes similaires pour faire cela :
