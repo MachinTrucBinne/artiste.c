@@ -3,17 +3,19 @@ PRODUIT PAR: NAC
 
 Novembre 2014
 
+Modifications :
+• 2019-10-20
+
+Compiler avec :
+    gcc artistes artistes.c -o -w
+
 UTILITÉ: extraire les artistes du fichier Musique.xml produit par iTunes. Fonctionne sur MAC OS Lion (10.7).
 
-À FAIRE :
-1) Télécharger les Xcode command line tools si ce n'est pas déjà fait.
-2) Télécharger Sublime Text pour compiler si ce n'est pas déjà fait (car gcc semble crasher à la compilation).
-3) S'assurer que le nom du présent fichier .c soit nommé artistes.c (au pluriel).
-4) Compiler le présent fichier artistes.c avec Sublime Text (cmd+b).
-5) S'assurer d'avoir le fichier Musique.xml produit par iTunes dans le même dossier que l'exécutable.
+Le fichier XML doit être dans le même dossier que l'exécutable.
+
 6) Exécuter l'exécutable artistes.
 
-Le fichier artistes_extraits.txt devrait contenir tous les artistes de votre librairie iTunes (dans l'ordre d'ajout chronologique).
+Le fichier artistes_extraits.txt devrait contenir tous les artistes de la librairie iTunes (dans l'ordre d'ajout chronologique).
 
 Si ça bug, tant pis.
 
@@ -25,7 +27,7 @@ Si ça bug, tant pis.
 #include <dirent.h>
 
 
-int main(int argc, char *argv[], char PWD[])
+int main(int argc, char *argv[])
 {
     /***************************************************************************/
     /*************************** Préliminaires *********************************/
@@ -186,7 +188,7 @@ int main(int argc, char *argv[], char PWD[])
                 Nombredartistes++; // le nombre d'artiste augmente
                 for (k=0 ; k<n_nouveau ; k++)
                 {
-                    if (artiste_nouveau[k] == '#' && artiste_nouveau[k+1] == '3' && artiste_nouveau[k+2] == '8' && artiste_nouveau[k+3] == ';'){k=k+4;} // car le log XML produit par iTunes génère des & de marde (i.e. de la forme "&#38;")
+                    if (artiste_nouveau[k] == '#' && artiste_nouveau[k+1] == '3' && artiste_nouveau[k+2] == '8' && artiste_nouveau[k+3] == ';'){k=k+4;} // car le log XML produit par iTunes génère des & de la forme "&#38;"
                     printf("%c", artiste_nouveau[k]);
                     fprintf(write_file,"%c",artiste_nouveau[k]);
                 }
