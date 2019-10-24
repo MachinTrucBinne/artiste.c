@@ -12,8 +12,8 @@ Maintenant qu'on a un fichier XML il faut extraire les artistes du fichier.
 Voici plusieurs codes similaires pour faire cela :
 
 1. *artistes.c*, en langage C,
-2. *artistes.py*, en langage Python 3.
-3. *artistes_XML.py*, en langage Python 3.
+2. *artistes1.py*, en langage Python 3.
+3. *artistes2.py*, en langage Python 3.
 
 Il faut mettre le fichier XML dans le répertoire du code.
 
