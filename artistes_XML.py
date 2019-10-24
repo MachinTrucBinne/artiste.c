@@ -14,15 +14,16 @@ tree = ET.parse('Musique.xml') # on lit depuis le disque
 root = tree.getroot() 
 
 artistes = [];
-for song in root[0][17][1::2]: # on ne regarde que les positions impaires
-	iterate_this = iter(song)
+for chanson in root[0][17][1::2]: # on ne regarde que les positions impaires
+	iterate_this = iter(chanson)
 	for child in iterate_this:
 		if (str(child.text) == "Artist"):
 			next_child = next(iterate_this)
-			artist = str(next_child.text)
-			if artist not in artistes:
-				artistes.append(artist)
-				#print(artist)
+			artiste = str(next_child.text)
+			if artiste not in artistes:
+				artistes.append(artiste)
+				#print(artiste)
+			break
 
 artistes.sort() # pour mettre les artistes en ordre alphabétique
 
