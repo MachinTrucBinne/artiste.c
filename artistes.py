@@ -1,9 +1,10 @@
 # 2019-10-20
 # Extraction des artistes du fichier Musique.XML produit par iTunes
-# C'est une variante Python / ReGeX de mon code artistes.c de 2014
 # Le fichier Musique.XML doit être dans le directory du code Python
 # rouler avec :
 #    python3 artistes.py
+
+# ici on utilise les ReGeX
 
 import re # pour les ReGeX
 import datetime # pour la date
