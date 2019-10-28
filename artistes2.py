@@ -1,10 +1,6 @@
 # 2019-10-23
-# Extraction des artistes du fichier Musique.XML produit par iTunes
-# Le fichier Musique.XML doit être dans le directory du code Python
-# rouler avec :
-#    python3 artistes.py
-
-# ici on utilise la librairie XML de Python
+# Imprime les artistes du fichier Musique.XML produit par iTunes.
+# Le fichier Musique.XML doit être dans le directory du code Python.
 
 import xml.etree.ElementTree as ET
 import datetime

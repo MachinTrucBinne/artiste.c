@@ -2,24 +2,53 @@
 
 ---
 
-Pour afficher la liste des artistes dans une librairies iTunes sur macOS il suffit d'ouvrir un terminal et de faire :
+## Introduction
+
+Le but ici est d'afficher la liste des artistes dans une librairies iTunes sur macOS.
+Une manière simple et efficace est d'ouvrir un terminal et de faire :
 ```cd ~/Music/iTunes/iTunes\ Media/Music ; ls```
 
-Ici il s'agit d'afficher les artistes d'une manière différente. D'abord, iTunes produit un fichier XML en allant dans le menu :
+Ici il s'agit d'afficher les artistes à partir du fichier *Musique.xml* produit par iTunes en allant dans le menu :
 ```Fichier/Bibliothèque/Exporter la bibliothèque...```
 
-Maintenant qu'on a un fichier XML il faut extraire les artistes du fichier.
-Voici plusieurs codes similaires pour faire cela :
+Il y a plusieurs manières d'extraire les artistes du fichier *Musique.xml*.
 
-1. *artistes.c*, en langage C,
-2. *artistes1.py*, en langage Python 3.
-3. *artistes2.py*, en langage Python 3.
+---
 
-Il faut mettre le fichier XML dans le répertoire du code.
+## Méthode 1
 
-Le code en C ne sort pas les artistes en ordre alphabétique mais en ordre d'ajout à la librairie.
+Via le code *artistes.c* en langage C.
+Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
 
-Les code en Python sortent les artistes en ordre alphabétique.
+---
 
-Le nombre d'artistes calculé par les codes Python sont ok mais celui en C pas toujours, selon l'ordre d'ajout des artistes dans la librairie.
+## Méthode 2
 
+Via le code  *artistes1.py* en langage Python 3.
+Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
+---
+
+## Méthode 3
+
+Via le code *artistes2.py* en Python 3.
+Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
+---
+
+## Méthode 4
+
+Via le code *artistes3.py*, en Python 3.
+Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+Il crée un nouveau fichier *Musique_extraite.xml* à partir du fichier *Musique.xml*. 
+Ensuite il faut ouvrir une session Postgres et importer les données du fichier *Musique_extraite.xml* à l'aide des commandes dans le fichier *artistes3.sql*.
+
+---
+
+### Remarque :
+
+1. Le code *artistes.c* ne sort pas les artistes en ordre alphabétique mais en ordre d'ajout à la librairie. Aussi, l enombre d'artistes calculé n'est pas bon, selon l'ordre d'ajout des artistes dans la librairie.
+2. Les codes *artistes1.py* et *artistes2.py* sortent les artistes en ordre alphabétique et donnent le bon nombre d'artistes.
+3. Pour la méthode 4, les informations sont extraites via des commandes SQL.
+
+---
