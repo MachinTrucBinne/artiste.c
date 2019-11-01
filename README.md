@@ -13,35 +13,45 @@ Ici il s'agit d'afficher les artistes à partir du fichier *Musique.xml* produit
 
 Il y a plusieurs manières d'extraire les artistes du fichier *Musique.xml*.
 
+Dans tous les cas, il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
 ---
 
 ## Méthode 1
 
 Via le code *artistes.c* en langage C.
-Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
+
 
 ---
 
 ## Méthode 2
 
 Via le code  *artistes1.py* en langage Python 3.
-Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
 
 ---
 
 ## Méthode 3
 
 Via le code *artistes2.py* en Python 3.
-Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
+
 
 ---
 
 ## Méthode 4
 
 Via le code *artistes3.py*, en Python 3.
-Il faut mettre le fichier *Musique.xml* dans le répertoire du code.
 Il crée un nouveau fichier *Musique_extraite.xml* à partir du fichier *Musique.xml*. 
 Ensuite il faut ouvrir une session Postgres et importer les données du fichier *Musique_extraite.xml* à l'aide des commandes dans le fichier *artistes3.sql*.
+
+---
+
+## Méthode 5
+
+Via le code *artistes4.py*, en Python 3.
+Il met les informations du fichier *Musique.xml* dans un *data frame* Pandas.
+C'est utile pour afficher diverses statistiques, e.g. le nombre de morceaux par an. 
 
 ---
 

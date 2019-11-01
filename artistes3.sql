@@ -158,7 +158,12 @@ FROM musique
 GROUP BY Artist
 ORDER BY annee_moy LIMIT 40;
 
-
+-- Pour avoir les albums ayant le bit_rate moyen le plus élevé :
+SELECT album, AVG(bit_rate) as bitrate_moy
+FROM musique
+GROUP BY album
+ORDER BY bitrate_moy DESC
+LIMIT 40;
 
 
 
